@@ -117,6 +117,16 @@
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bintec.WebService.Controller\Bintec.WebService.Controller.csproj">
+      <Project>{98f572e4-2de6-409e-a97d-4c2bba3ab7e9}</Project>
+      <Name>Bintec.WebService.Controller</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bintec.WebService.Domain\Bintec.WebService.Domain.csproj">
+      <Project>{80e6db10-5363-4577-971e-0cfe1df637a6}</Project>
+      <Name>Bintec.WebService.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

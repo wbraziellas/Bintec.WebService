@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
+using Bintec.WebService.Domain.DTO;
+using Bintec.WebService.Controller;
 
 namespace Bintec.WebService.Service
 {
@@ -16,11 +18,20 @@ namespace Bintec.WebService.Service
     // [System.Web.Script.Services.ScriptService]
     public class Servico : System.Web.Services.WebService
     {
+        #region Propriedades
+
+        private XmlPorEmpresaController _selecionarRegistroXmlPorEmpresa;
+        private XmlPorEmpresaController selecionarRegistroXmlPorEmpresa
+        {
+            get { return _selecionarRegistroXmlPorEmpresa ?? (_selecionarRegistroXmlPorEmpresa = new XmlPorEmpresaController()); }
+        }
+
+        #endregion
 
         [WebMethod]
-        public string HelloWorld()
+        public List<XmlPorEmpresaDTO> SelecionarRegistroPorChaveDeAcesso(string chavedeacesso)
         {
-            return "Hello World";
+            return selecionarRegistroXmlPorEmpresa.PorChaveDeAcesso(chavedeacesso);
         }
     }
 }
