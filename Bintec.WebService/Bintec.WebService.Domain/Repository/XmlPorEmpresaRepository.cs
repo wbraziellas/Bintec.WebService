@@ -41,7 +41,10 @@ namespace Bintec.WebService.Domain.Repository
 
                 _adapter.Fill(_data);
 
-                return ConverterDataEmXmlPorEmpresa(_data);
+                if (_data.Rows.Count == 0)
+                    return new List<XmlPorEmpresaDTO>();
+                else
+                    return ConverterDataEmXmlPorEmpresa(_data);
             }
             catch(Exception eErro)
             {

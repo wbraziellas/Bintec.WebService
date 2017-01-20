@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Services;
 using Bintec.WebService.Domain.DTO;
 using Bintec.WebService.Controller;
+using System.Web.Script.Services;
+using System.Net.Http;
 
 namespace Bintec.WebService.Service
 {
@@ -20,18 +22,24 @@ namespace Bintec.WebService.Service
     {
         #region Propriedades
 
-        private XmlPorEmpresaController _selecionarRegistroXmlPorEmpresa;
-        private XmlPorEmpresaController selecionarRegistroXmlPorEmpresa
+        private XmlPorEmpresaController _tabelaXmlPorEmpresa;
+        private XmlPorEmpresaController tabelaXmlPorEmpresa
         {
-            get { return _selecionarRegistroXmlPorEmpresa ?? (_selecionarRegistroXmlPorEmpresa = new XmlPorEmpresaController()); }
+            get { return _tabelaXmlPorEmpresa ?? (_tabelaXmlPorEmpresa = new XmlPorEmpresaController()); }
         }
 
         #endregion
 
-        [WebMethod]
+        [WebMethod]        
         public List<XmlPorEmpresaDTO> SelecionarRegistroPorChaveDeAcesso(string chavedeacesso)
         {
-            return selecionarRegistroXmlPorEmpresa.PorChaveDeAcesso(chavedeacesso);
+            return tabelaXmlPorEmpresa.SelecionarPorChaveDeAcesso(chavedeacesso);
+        }
+
+        [WebMethod]        
+        public string InserirRegistroPorChaveDeAcesso(XmlPorEmpresaDTO xmlPorEmpresa)
+        {
+            return tabelaXmlPorEmpresa.AtualizarRegistro(xmlPorEmpresa);
         }
     }
 }

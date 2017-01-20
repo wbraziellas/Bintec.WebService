@@ -27,9 +27,14 @@ namespace Bintec.WebService.Controller
 
         #endregion
 
-        public List<XmlPorEmpresaDTO> PorChaveDeAcesso(string chavedeacesso)
+        public List<XmlPorEmpresaDTO> SelecionarPorChaveDeAcesso(string chavedeacesso)
         {
             return listaXmlPorEmpresaDTO = xmlPorEmpresaRepository.SelecionarXmlPorChaveDeAcesso(chavedeacesso);
+        }
+
+        public string AtualizarRegistro(XmlPorEmpresaDTO xmlPorEmpresaDTO)
+        {
+            return xmlPorEmpresaRepository.AtualizarXmlPorChaveDeAcesso(xmlPorEmpresaDTO);
         }
     }
 }
