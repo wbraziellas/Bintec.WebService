@@ -32,9 +32,14 @@ namespace Bintec.WebService.Controller
             return listaXmlPorEmpresaDTO = xmlPorEmpresaRepository.SelecionarXmlPorChaveDeAcesso(chavedeacesso);
         }
 
-        public string AtualizarRegistro(XmlPorEmpresaDTO xmlPorEmpresaDTO)
+        public string AtualizarRegistro(XmlPorEmpresaDTO xmlPorEmpresa)
         {
-            return xmlPorEmpresaRepository.AtualizarXmlPorChaveDeAcesso(xmlPorEmpresaDTO);
+            return xmlPorEmpresaRepository.AtualizarXmlPorChaveDeAcesso(xmlPorEmpresa);
+        }
+
+        public string InserirRegistro(XmlPorEmpresaDTO xmlPorEmpresa)
+        {
+            return xmlPorEmpresaRepository.InserirXmlPorChaveDeAcesso(xmlPorEmpresa);
         }
     }
 }

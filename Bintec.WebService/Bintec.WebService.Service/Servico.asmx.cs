@@ -39,6 +39,12 @@ namespace Bintec.WebService.Service
         [WebMethod]        
         public string InserirRegistroPorChaveDeAcesso(XmlPorEmpresaDTO xmlPorEmpresa)
         {
+            return tabelaXmlPorEmpresa.InserirRegistro(xmlPorEmpresa);
+        }
+
+        [WebMethod]
+        public string AtualizarRegistroPorChaveDeAcesso(XmlPorEmpresaDTO xmlPorEmpresa)
+        {
             return tabelaXmlPorEmpresa.AtualizarRegistro(xmlPorEmpresa);
         }
     }
